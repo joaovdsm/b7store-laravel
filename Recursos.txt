@@ -1,0 +1,41 @@
+- Criação de conta
+	-- Registro
+		--- Nome
+		--- Email
+		--- Senha
+
+	-- Login
+		--- Email
+		--- Senha
+
+	-- Perfil
+		--- Nome
+		--- Email
+		--- Senha
+		--- Estado
+
+
+- Criação de anuncios
+	-- Foto (Principal / Secundárias)
+	-- Titulo
+	-- Slug
+	-- user_id
+	-- Descrição
+	-- Preço
+	-- Categoria
+		--- Icone
+		--- Texto
+	-- Estado
+	-- created_at
+	-- Negociável ou não (bool)
+	-- Entrar em contato
+	-- Visualizações
+
+
+___ Meus Anuncios
+___ Recurso de pesquisa
+___ Anuncios relacionados
+___ Recurso de recuperação de senha
+___ Modais de confirmação de ação
+___ Edição de anuncios
+___ Deletar anuncios
