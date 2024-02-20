@@ -6,37 +6,26 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/loginSignUpStyle.css" />
 
-    <title>B7Store - Cadastre-se</title>
+    <title>B7Store - Esqueci minha senha</title>
   </head>
 
   <body>
-    <a href="index.html" class="back-button">← Voltar</a>
+    <a href="{{ route('login') }}" class="back-button">← Voltar</a>
     <div class="login-page">
       <div class="login-area">
         <h3 class="login-title">B7Store</h3>
         <div class="text-login">
-          Preencha os campos abaixo e realize seu cadastro.
+          Use o seu e-mail para realizar a recuperação da senha.
         </div>
         <form>
-          <div class="name-area">
-            <div class="name-label">Nome</div>
-            <input type="text" placeholder="Digite o seu nome" />
-          </div>
           <div class="email-area">
             <div class="email-label">E-mail</div>
             <input type="email" placeholder="Digite o seu e-mail" />
           </div>
-          <div class="password-area">
-            <div class="password-label">Senha</div>
-            <div class="password-input-area">
-              <input type="password" placeholder="Digite a sua senha" />
-              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
-          </div>
-          <button class="login-button">Cadastrar</button>
+          <button class="login-button">Recuperar</button>
         </form>
         <div class="register-area">
-          Já tem cadastro? <a href="login.html">Fazer Login</a>
+            Ainda não tem cadastro? <a href="{{ route('register') }}">Cadastre-se</a>
         </div>
       </div>
       <div class="terms">
@@ -45,9 +34,6 @@
         comunicações via e-mail e push de todos os nossos parceiros.
       </div>
     </div>
-    <footer>
-      <span>powered by B7Web</span>
-      <span>B7Store</span>
-    </footer>
+    <x-base.footer />
   </body>
 </html>
