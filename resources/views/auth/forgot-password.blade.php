@@ -15,7 +15,7 @@
       <div class="login-area">
         <h3 class="login-title">B7Store</h3>
         <div class="text-login">
-          Use o seu e-mail para realizar a recuperação da senha.
+          Preencha os campos abaixo para recuperar sua senha.
         </div>
         <form>
           <div class="email-area">

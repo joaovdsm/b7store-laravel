@@ -39,3 +39,5 @@ ___ Recurso de recuperação de senha
 ___ Modais de confirmação de ação
 ___ Edição de anuncios
 ___ Deletar anuncios
+
+Biblioteca de tradução: https://github.com/lucascudo/laravel-pt-BR-localization
