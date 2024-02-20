@@ -1,7 +1,7 @@
-# b7store-laravel
+# B7Store Laravel
 Projeto do módulo 18 do curso de Laravel da B7WEB (Clone OLX)
 
-Recursos básicos (CRUD's):
+Recursos básicos (CRUD's)
 - Criação de conta
 	- Registro:
 		- Nome
@@ -35,7 +35,7 @@ Recursos básicos (CRUD's):
 	- Visualizações
 	- created_at
 
-Recursos extras (Regras de negócio)
+Recursos extras (Regras de negócio) </br>
 ___ Meus Anuncios </br>
 ___ Recurso de pesquisa </br>
 ___ Anuncios relacionados </br>
