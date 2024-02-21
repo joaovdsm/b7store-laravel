@@ -19,20 +19,25 @@
         </div>
         <form method="POST" action="{{ route('register_action') }}">
           @csrf {{-- Cross-Site Request Forgery - Sem adicionar o mesmo o retorno será 419 | Page Expired --}}
-          @if ($errors->any())
-            <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
-              @endforeach
-            </ul>
-          @endif
+
+          {{-- Outra forma de retornar os erros (Embora não seja tão utilizada) --}}
+            {{-- @if ($errors->any())
+              <ul>
+                @foreach ($errors->all() as $error) Pode-se alterar o all() por first() sendo assim, será retornado apenas o 1° erro.
+                  <li>{{$error}}</li>
+                @endforeach
+              </ul>
+            @endif --}}
+
           <div class="name-area">
             <div class="name-label">Nome</div>
-            <input type="text" id="name" name="name" placeholder="Digite o seu nome" />
+            <input type="text" id="name" name="name" placeholder="Digite o seu nome" value="{{ @old('name') }}" />
+            @error('name') <div class="error">{{ $message }}</div> @enderror
           </div>
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" id="email" name="email" placeholder="Digite o seu e-mail" />
+            <input type="email" id="email" name="email" placeholder="Digite o seu e-mail" value="{{ @old('email') }}" />
+            @error('email') <div class="error">{{ $message }}</div> @enderror
           </div>
           <div class="password-area">
             <div class="password-label">Senha</div>
@@ -40,9 +45,10 @@
               <input type="password" id="password" name="password" placeholder="Digite a sua senha" />
               <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
             </div>
+            @error('password') <div class="error">{{ $message }}</div> @enderror
           </div>
           <div class="password-area">
-            <div class="password-label">Senha</div>
+            <div class="password-label">Confirmar Senha</div>
             <div class="password-input-area">
               <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirme a sua senha" />
               <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
