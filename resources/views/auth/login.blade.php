@@ -27,10 +27,7 @@
               <div class="password-area-text">Senha</div>
               <a href="{{ route('forgot-password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
             </div>
-            <div class="password-input-area">
-              <input type="password" placeholder="Digite a sua senha" />
-              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+            <x-form.password-input name="password" id="password" placeholder="Digite a sua senha" />
           </div>
           <button class="login-button">Entrar</button>
         </form>
