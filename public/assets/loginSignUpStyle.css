@@ -2,6 +2,17 @@
   --footerHeight: 92px;
 }
 /* 
+* Errors 
+*/
+.error {
+  background-color: rgba(255,0,0,0.2);
+  padding: 5px 10px;
+}
+.is-invalid {
+  border: 1px solid rgba(255,0,0,0.2) !important;
+}
+
+/* 
 * Back Buttom
 */
 .back-button {
