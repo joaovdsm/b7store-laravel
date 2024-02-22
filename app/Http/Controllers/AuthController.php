@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 
 // Imports Adicionais
 use Illuminate\Support\Facades\Hash;
@@ -29,12 +30,38 @@ class AuthController extends Controller
         return redirect()->route('select-state');
     }
 
+    public function login() {
+        return view('auth.login');
+    }
+
+    public function login_action(LoginRequest $request) {
+        $loginData = $request->only(['email', 'password']);
+        
+        if(!Auth::attempt($loginData)) {
+            $data['message'] = "Usuário e/ou senha inválidos";
+            $data['email'] = $loginData['email'];
+            return view('auth.login', $data);
+        }
+        
+        return redirect()->route('home');
+    }
+
     public function state() {
         $data['states'] = State::all();
         return view('auth.select-state', $data);
     }
 
     public function state_action(Request $request) {
-        dd($request);
+        $data = $request->only(['state']);
+        $stateRegister = State::find($data['state']);
+
+        if(!$stateRegister) {
+            return redirect('/login');
+        }
+
+        $user = Auth::user();
+        $user->state_id = $stateRegister->id;
+        $user->save();
+        return redirect()->route('home');
     }
 }

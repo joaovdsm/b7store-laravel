@@ -17,7 +17,7 @@
         <div class="text-login">
           Preencha os campos abaixo para realizar seu cadastro.
         </div>
-        <form method="POST" action="{{ route('register-action') }}">
+        <form method="POST" action="{{ route('register') }}">
           @csrf {{-- Cross-Site Request Forgery - Sem adicionar o mesmo o retorno será 419 | Page Expired --}}
 
           {{-- Outra forma de retornar os erros (Embora não seja tão utilizada) --}}

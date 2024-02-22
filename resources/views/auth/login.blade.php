@@ -17,10 +17,16 @@
         <div class="text-login">
           Use as suas credenciais para realizar o Login.
         </div>
-        <form>
+        <form method="POST" action="{{ route('login') }}">
+          @if (isset($message))
+            <p class="error"> {{ $message }} </p>
+          @endif
+
+          @csrf
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" placeholder="Digite o seu e-mail" />
+            <input type="email" class="@error('email') is-invalid @enderror" id="email" name="email" placeholder="Digite o seu e-mail" value="{{ $email ?? '' }}"/>
+            @error('email') <div class="error">{{ $message }}</div> @enderror
           </div>
           <div class="password-area">
             <div class="password-label">
@@ -28,6 +34,7 @@
               <a href="{{ route('forgot-password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
             </div>
             <x-form.password-input name="password" id="password" placeholder="Digite a sua senha" />
+            @error('password') <div class="error">{{ $message }}</div> @enderror
           </div>
           <button class="login-button">Entrar</button>
         </form>
