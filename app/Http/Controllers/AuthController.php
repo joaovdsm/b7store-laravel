@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Models
 use App\Models\User;
+use App\Models\State;
 
 class AuthController extends Controller
 {
@@ -29,10 +30,11 @@ class AuthController extends Controller
     }
 
     public function state() {
-        return view('auth.select-state');
+        $data['states'] = State::all();
+        return view('auth.select-state', $data);
     }
 
-    public function state_action() {
-
+    public function state_action(Request $request) {
+        dd($request);
     }
 }

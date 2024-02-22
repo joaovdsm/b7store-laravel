@@ -20,12 +20,9 @@
             <div class="states-area">
                 <div class="states-label">Selecione um estado</div>
                 <select class="states">
-                    <option selected hidden disabled value="">Todos</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="SP">São Paulo</option>
+                    @foreach ($states as $state)                      
+                      <option value="{{$state['acronym']}}">{{$state['name']}}</option>
+                    @endforeach
                 </select>
             </div>
             @error('state') <div class="error">{{ $message }}</div> @enderror
