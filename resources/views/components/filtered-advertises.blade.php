@@ -31,7 +31,7 @@
     <div class="ads-title">Anúncios recentes</div>
     <div class="ads-area">
         @foreach ($advertises as $advertise)
-            <x-simple-advertise href={{$advertise['href']}} name={{ $advertise['name'] }} price={{ $advertise['price'] }} image={{ $advertise['image'] }} />
+          <x-simple-advertise href="{{ $advertise['href'] }}" name="{{ $advertise['name'] }}" price="{{ $advertise['price'] }}" image="{{ $advertise['image'] }}" />
         @endforeach
     </div>
   </div>
