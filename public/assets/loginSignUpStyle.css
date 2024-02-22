@@ -77,6 +77,7 @@ form {
   margin-top: 56px;
 }
 .name-label,
+.states-label,
 .email-label,
 .password-label {
   color: #3c4952;
@@ -85,6 +86,7 @@ form {
   line-height: normal;
 }
 .name-area input,
+.states-area select,
 .email-area input,
 .password-input-area input {
   width: 100%;
@@ -98,6 +100,9 @@ form {
   outline: 0;
 }
 .email-area {
+  margin-top: 24px;
+}
+.states-area {
   margin-top: 24px;
 }
 .password-label {
