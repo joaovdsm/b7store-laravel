@@ -17,10 +17,18 @@
         <a href="" class="announce-now">Anunciar agora →</a>
         <img class="menu-icon" src="assets/icons/menuIcon.png" alt="Menu" />
         <div class="menu-mobile">
-            <a href="myAccount.html" class="my-account-mobile">
-            <img src="assets/icons/userIcon.png" alt="Ícone do usuário" />
-            Minha Conta
-            </a>
+            @if (Auth::check()) 
+                
+                <a href="myAccount.html" class="my-account-mobile">
+                    <img src="assets/icons/userIcon.png" alt="Ícone do usuário" />
+                    Minha Conta
+                </a>
+            @else 
+                <a href="{{ route('login') }}" class="my-account-mobile">
+                    <img src="assets/icons/userIcon.png" alt="Ícone do usuário" />
+                    Login
+                </a>
+            @endif
             <a class="my-account-mobile" href="/index.html"
             ><img src="assets/icons/logoutIcon.png" /> Sair</a
             >
