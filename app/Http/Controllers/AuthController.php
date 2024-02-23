@@ -43,7 +43,7 @@ class AuthController extends Controller
             return view('auth.login', $data);
         }
         
-        return redirect()->route('home');
+        return redirect()->route('select-state');
     }
 
     public function state() {

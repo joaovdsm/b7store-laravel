@@ -1,6 +1,6 @@
 <div class="password-input-area">
     <input type="password" class="@error($name) is-invalid @enderror" id="{{ $id }}" name="{{ $name }}" placeholder="{{ $placeholder }}" />
-    <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar/ocultar senha" onclick="togglePasswordVisibility('{{ $id }}')" />
+    <img src="/assets/icons/eyeIcon.png" alt="Ícone mostrar/ocultar senha" onclick="togglePasswordVisibility('{{ $id }}')" />
 </div>
 
 <script>

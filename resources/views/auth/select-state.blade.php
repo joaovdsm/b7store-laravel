@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="stylesheet" href="assets/loginSignUpStyle.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/loginSignUpStyle.css" />
 
     <title>B7Store - Estado</title>
   </head>
@@ -20,9 +20,9 @@
           @csrf
           <div class="state-area">
               <div class="state-label">Selecione um estado</div>
-              <select class="state">
+              <select class="state" name="state" id="state">
                   @foreach ($states as $state)                      
-                    <option value="{{$state['acronym']}}">{{$state['name']}}</option>
+                    <option value="{{$state['id']}}">{{$state['name']}}</option>
                   @endforeach
               </select>
           </div>
