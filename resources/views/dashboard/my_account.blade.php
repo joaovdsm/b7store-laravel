@@ -26,7 +26,7 @@
             >
           </div>
           <div class="sidebar-bottom">
-            <a href="/index.html"
+            <a href="{{ route('logout') }}"
               ><img src="/assets/icons/logoutIcon.png" /> Sair</a
             >
           </div>
@@ -43,19 +43,15 @@
               <div class="email-label">E-mail</div>
               <input type="email" name="email" id="email" placeholder="Digite o seu e-mail" value="{{ $user->email }}" />
             </div>
-            <div class="password-area">
-              <div class="password-label">Senha</div>
-              <x-form.password-input name="password" id="password" placeholder="Digite a sua senha" />
-            </div>
             <div class="state-area">
               <div class="state-label">Selecione um estado</div>
-              <select class="state" name="state" id="state">
+              <select class="state" name="state_id" id="state_id">
                   @foreach ($states as $state)                      
                     <option value="{{$state['id']}}" {{ $state['id'] == $user->state_id ? 'selected' : '' }} >{{$state['name']}}</option>
                   @endforeach
               </select>
             </div>
-            <button class="save-button">Salvar</button>
+            <input type="submit" class="save-button" value="Salvar" />
           </form>
         </div>
       </div>

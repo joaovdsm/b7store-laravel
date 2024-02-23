@@ -17,6 +17,21 @@ class DashboardController extends Controller
     }
 
     public function my_account_action(Request $request) {
-        dd($request);
+        $data = $request->only(['name', 'email', 'state_id']);
+        $stateRegister = State::find($data['state_id']);
+
+        if(!$stateRegister) {
+            return redirect('/login');
+        }
+
+        // Outra maneira de fazer o user update ("Para deixar o VSCode feliz")
+        // $userId = Auth::user()->id;
+        // $user = User::find($userId);
+        // $user->update($data);
+
+        $user = auth()->user();
+        $user->update($data);
+        
+        return redirect()->route('my-account');
     }
 }

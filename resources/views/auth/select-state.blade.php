@@ -20,7 +20,7 @@
           @csrf
           <div class="state-area">
               <div class="state-label">Selecione um estado</div>
-              <select class="state" name="state" id="state">
+              <select class="state" name="state_id" id="state_id">
                   @foreach ($states as $state)                      
                     <option value="{{$state['id']}}">{{$state['name']}}</option>
                   @endforeach

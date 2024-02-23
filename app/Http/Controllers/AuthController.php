@@ -52,16 +52,20 @@ class AuthController extends Controller
     }
 
     public function state_action(Request $request) {
-        $data = $request->only(['state']);
-        $stateRegister = State::find($data['state']);
+        $data = $request->only(['state_id']);
+        $stateRegister = State::find($data['state_id']);
 
         if(!$stateRegister) {
             return redirect('/login');
         }
 
         $user = Auth::user();
-        $user->state_id = $stateRegister->id;
+        $user->state_id = $stateRegister->id; // Caso o nome passado no retorno seja diferente do utilizado na tabela, precisa da conversão
         $user->save();
         return redirect()->route('home');
+    }
+
+    public function logout() {
+        return view('auth.login');
     }
 }
