@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\RegisterRequest;
-use App\Http\Requests\LoginRequest;
 
 // Imports Adicionais
 use Illuminate\Support\Facades\Hash;
@@ -13,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 // Models
 use App\Models\User;
 use App\Models\State;
+
+// Requests
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -66,6 +68,7 @@ class AuthController extends Controller
     }
 
     public function logout() {
+        Auth::logout();
         return view('auth.login');
     }
 }

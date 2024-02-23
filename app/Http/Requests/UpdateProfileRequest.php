@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Imports Adicionais
+use Illuminate\Validation\Rule;
+
 class UpdateProfileRequest extends FormRequest
 {
     /**
@@ -13,12 +16,12 @@ class UpdateProfileRequest extends FormRequest
      */
     public function rules(): array
     {
-        $user_id = auth()->user()->id();
+        $user_id = auth()->user()->id;
         return [
             'name' => 'required',
             // 'email' => 'required|email|unique:users,email',
-            'email' => ['required', 'email', 'unique:users', Rule::unique('users')->ignore($user_id)],
-            'state' => 'required|numeric'
+            'email' => ['required', 'email', Rule::unique('users')->ignore($user_id)],
+            'state_id' => 'required|numeric|exists:states,id' // Para colocar a verificação de existencia, basta adicionar o exists:table,column
         ];
     }
 }
