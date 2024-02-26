@@ -9,28 +9,19 @@
     />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/myAccountStyle.css" />
+    <link rel="stylesheet" href="/assets/myAdsStyle.css" />
     <title>B7Store</title>
   </head>
 
   <body>
+    {{-- Header --}}
     <x-base.header />
+    {{-- End-Header --}}
+
     <main>
       <div class="my-account-page">
-        <div class="sidebar">
-          <div class="sidebar-top">
-            <a href="/myAccount.html" class="config"
-              ><img src="/assets/icons/configIcon.png" /> Configurações</a
-            >
-            <a href="/myAds.html"
-              ><img src="/assets/icons/layersIonGray.png" /> Meus Anúncios</a
-            >
-          </div>
-          <div class="sidebar-bottom">
-            <a href="{{ route('logout') }}"
-              ><img src="/assets/icons/logoutIcon.png" /> Sair</a
-            >
-          </div>
-        </div>
+        <x-base.sidebar />
+        
         <div class="profile-area">
           <h3 class="profile-title">Meu perfil</h3>
 
@@ -63,6 +54,9 @@
         </div>
       </div>
     </main>
+
+    {{-- Footer --}}
     <x-base.footer />
+    {{-- End Footer --}}
   </body>
 </html>

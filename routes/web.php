@@ -19,6 +19,9 @@ Route::get('/forgot-password', function() { return view('auth.forgot-password');
 Route::middleware(['auth'])->group(function () {
     Route::get('/select-state', [AuthController::class, 'state'])->name('select-state');
     Route::post('/select-state', [AuthController::class, 'state_action']);
+    
+    Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my-ads');
+    Route::post('/dashboard/my-ads', [DashboardController::class, 'my_ads_action']);
 
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my-account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action']);
