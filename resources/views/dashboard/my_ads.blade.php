@@ -26,7 +26,11 @@
           <h3 class="myAds-title">Meus Anúncios</h3>
           <div class="myAds-ads-area">
             @foreach ($advertises as $advertise)
-              <x-my-ad-item image="/assets/myAds/game1.png" title="{{ $advertise->title }}" price="{{ number_format($advertise->price, 2, ',', '.') }}"/>
+              <x-my-ad-item 
+                title="{{ $advertise->title }}" 
+                price="{{ number_format($advertise->price, 2, ',', '.') }}"
+                image="{{ $advertise->images->where('featured', 1)->first()->url }}" 
+              />
             @endforeach
           </div>
         </div>
