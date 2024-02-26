@@ -49,7 +49,7 @@ class User extends Authenticatable
     ];
 
     public function advertises(): HasMany {
-        return $this->hasMany(Advertises::class);
+        return $this->hasMany(Advertise::class);
     }
 
     public function state(): BelongsTo
