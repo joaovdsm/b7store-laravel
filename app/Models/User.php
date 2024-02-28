@@ -52,8 +52,7 @@ class User extends Authenticatable
         return $this->hasMany(Advertise::class);
     }
 
-    public function state(): BelongsTo
-    {
+    public function state(): BelongsTo {
         return $this->belongsTo(State::class);
     }
 }

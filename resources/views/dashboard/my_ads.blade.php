@@ -26,10 +26,14 @@
           <h3 class="myAds-title">Meus Anúncios</h3>
           <div class="myAds-ads-area">
             @foreach ($advertises as $advertise)
-              <x-my-ad-item 
-                title="{{ $advertise->title }}" 
-                price="{{ number_format($advertise->price, 2, ',', '.') }}"
-                image="{{ $advertise->images->where('featured', 1)->first()->url }}" 
+              <x-basic-ad
+                {{-- Pode ser passado uma variável de cada vez, ou uma prop com tudo que há dentro do objeto.
+                  title="{{ $advertise->title }}" 
+                  price="{{ number_format($advertise->price, 2, ',', '.') }}"
+                  image="{{ $advertise->images->where('featured', 1)->first()->url }}" 
+                --}}
+                :advertise="$advertise"
+                :editable="true"
               />
             @endforeach
           </div>
