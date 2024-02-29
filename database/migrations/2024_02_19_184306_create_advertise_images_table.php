@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('url');
             $table->foreignIdFor(Advertise::class)->constrained();
+            // $table->foreignIdFor(Advertise::class)->constrained()->onDelete('cascade'); utilizando desta forma, quando o id (PAI ~ advertises) for deletado 
+            // O(s) registro(s) (FILHO(s)) da tabela imagem também é/são removido(s), isso removeria a linha 30 de AdController.
             $table->boolean('featured')->default(false);
             $table->timestamps();
         });
