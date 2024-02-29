@@ -24,9 +24,9 @@
   <div class="ad-image-area">
     @if(!empty($editable))
       <div class="ad-buttons">
-        <div class="ad-button">
+        <a class="ad-button" href="{{ route('ad-delete', ['id' => $advertise->id]) }}">
           <img src="/assets/icons/deleteIcon.png" />
-        </div>
+        </a>
         <div class="ad-button">
           <img src="/assets/icons/editIcon.png" />
         </div>
