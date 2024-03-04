@@ -17,6 +17,8 @@ Route::post('/login', [AuthController::class, 'login_action']);
 
 Route::get('/forgot-password', function() { return view('auth.forgot-password'); })->name('forgot-password');
 
+Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad-show');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/select-state', [AuthController::class, 'state'])->name('select-state');
     Route::post('/select-state', [AuthController::class, 'state_action']);

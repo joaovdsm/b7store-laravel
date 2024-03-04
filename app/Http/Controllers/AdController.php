@@ -13,6 +13,12 @@ use App\Models\AdvertiseImage;
 
 class AdController extends Controller
 {
+    public function show(String $slug) {
+      $ad = Advertise::where('slug', $slug)->first();
+      dd($ad);
+      return view('single-ad');
+    }
+
     public function delete(String $id) {
       // O anúncio só pode ser removido se pertence ao usuário.
       // O anúncio só pode ser removido se ele existir.
