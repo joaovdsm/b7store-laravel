@@ -15,8 +15,10 @@ class AdController extends Controller
 {
     public function show(String $slug) {
       $ad = Advertise::where('slug', $slug)->first();
-      dd($ad);
-      return view('single-ad');
+      $ad->views++;
+      $ad->save();
+
+      return view('single-ad', compact('ad'));
     }
 
     public function delete(String $id) {
