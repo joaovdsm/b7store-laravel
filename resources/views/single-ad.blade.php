@@ -30,7 +30,7 @@
           <div class="categories-state">{{ $ad->state->name }} / {{ $ad->category->name }}</div>
           <div class="ad-page-title">{{ $ad->title }}</div>
           <div class="ad-page-date">Publicado em {{ date('d/m/Y', strtotime($ad->created_at)) }} às {{ date('H:i', strtotime($ad->created_at)) }}</div>
-          <div class="ad-page-price">R$ {{ number_format($ad->price,2,',','.') }}</div>
+          <div class="ad-page-price">R$ {{ $ad->price_formatted }}</div>
           
           @if ($ad->negotiable)
             <div class="contact">

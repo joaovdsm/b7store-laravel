@@ -39,5 +39,5 @@
     ></div>
   </div>
   <div class="ad-title">{{ $advertise->title }}</div>
-  <div class="ad-price">R$ {{ $advertise->price }}</div>
+  <div class="ad-price">R$ {{ $advertise->price_formatted }}</div>
 </div>

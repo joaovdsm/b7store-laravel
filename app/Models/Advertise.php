@@ -29,4 +29,8 @@ class Advertise extends Model
     {
         return $this->hasMany(AdvertiseImage::class);
     }
+
+    public function getPriceFormattedAttribute():String {
+      return number_format($this->price, 2, ',', '.');
+    }
 }
