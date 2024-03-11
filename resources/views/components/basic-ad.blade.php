@@ -34,7 +34,7 @@
     @endif
     <div
       class="ad-image"
-      style="background-image: url('{{ $advertise->images->where('featured', 1)->first()->url ?? 'https://placehold.it/300x300' }}')" 
+      style="background-image: url('{{ $advertise->images->where('featured', 1)->first()->url ?? 'https://via.placeholder.com/400x300.png?text=Sem+imagem' /* 'https://placehold.it/300x300' */ }}')" 
       {{-- A utilização do ?? serve para verificar se um retorno é nulo --}}
     ></div>
   </div>
