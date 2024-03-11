@@ -16,7 +16,7 @@
   }
 </style>
 
-<div class="my-ad-item">
+<a href="{{ route('ad-show', $advertise->slug) }}" class="my-ad-item" style="text-decoration: none;">
   @if(isset($user) && $advertise->user_id === $user->id)
     <span class="pill my-ad-pill"> Meu Anúncio </span>
   @endif
@@ -40,4 +40,4 @@
   </div>
   <div class="ad-title">{{ $advertise->title }}</div>
   <div class="ad-price">R$ {{ $advertise->price_formatted }}</div>
-</div>
+</a>

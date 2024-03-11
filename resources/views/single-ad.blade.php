@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/adPageStyle.css" />
+    <link rel="stylesheet" href="/assets/myAdsStyle.css" />
     <title>B7Store</title>
 
     <script>
@@ -53,16 +54,13 @@
       <div class="ads">
         <div class="ads-title">Anúncios relacionados</div>
         <div class="ads-area">
-          @foreach ($relatedAds as $relatedAd)
-            <a class="ad-item" href="{{ route('ad-show', $relatedAd->slug) }}">
-              <div
-                class="ad-image"
-                style="background-image: url('{{ $relatedAd->images->first()->url ?? 'https://placehold.it/300x300' }}')"
-              ></div>
-              <div class="ad-title">{{ $relatedAd->title }}</div>
-              <div class="ad-price">R$ {{ number_format($relatedAd->price,2,',','.')  }}</div>
-            </a>
-          @endforeach
+          @if (count($relatedAds) > 0)
+            @foreach ($relatedAds as $relatedAd)
+              <x-basic-ad :advertise="$relatedAd" :user="auth()->user()" />
+            @endforeach
+          @else
+            <span>Não há anúncios recentes para exibir</span>
+          @endif
         </div>
       </div>
     </main>
