@@ -2,6 +2,7 @@
     <div class="hero-area">
       <div class="search-area-adsList">
         <input
+          wire:model.live="searchText"
           class="search-text"
           type="text"
           placeholder="Estou procurando por..."
@@ -9,24 +10,27 @@
         <div class="options-area">
           <div class="categories-area">
             <p>Categoria</p>
-            <select class="categories-options">
+            {{-- Realizara uma nova requisição, SEMPRE que houver um ONCHANGE. --}}
+            {{-- <select wire:model.live="selectedCategory" class="categories-options"> --}}
+
+            {{-- THROTTLE: Realizara uma nova requisição após 1s, SEMPRE que houver um ONCHANGE, ou seja, Requisição sera 1s APÓS TODAS as mudanças. --}}
+            {{-- <select wire:model.live.throttle.1000ms="selectedCategory" class="categories-options"> --}}
+
+            {{-- DEBOUNCE: Realizara uma nova requisição após 1s, A PARTIR do último ONCHANGE, ou seja, Requisição sera 1s APÓS a ÚLTIMA mudança. --}}
+            <select wire:model.live.debounce.1000ms="selectedCategory" class="categories-options">
               <option selected hidden disabled value="">Todas</option>
-              <option value="cars">Carros</option>
-              <option value="eletronics">Eletrônicos</option>
-              <option value="clothes">Roupas</option>
-              <option value="sports">Esporte</option>
-              <option value="babies">Bebês</option>
+              @foreach ($categories as $category)
+                <option value="{{ $category->id }}"> {{ $category->name }} </option>
+              @endforeach
             </select>
           </div>
           <div class="states-area">
             <p>Estados</p>
-            <select class="states">
+            <select wire:model.live="selectedState" class="states">
               <option selected hidden disabled value="">Todos</option>
-              <option value="PB">Paraíba</option>
-              <option value="PE">Pernambuco</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="SP">São Paulo</option>
+              @foreach ($states as $state)
+                <option value="{{ $state->id }}"> {{ $state->name }} </option>
+              @endforeach
             </select>
           </div>
           <button class="search-mobile-button">Procurar</button>
