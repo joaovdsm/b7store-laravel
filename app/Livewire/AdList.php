@@ -9,9 +9,13 @@ use App\Models\Advertise;
 use App\Models\Category;
 use App\Models\State;
 
+// Livewire
+use Livewire\WithPagination;
+
 class AdList extends Component
 {
-    public $filteredAds;
+    use WithPagination;
+    // public $filteredAds;
     public $categories;
     public $states;
 
@@ -24,8 +28,11 @@ class AdList extends Component
         $this->states = State::all();
     }
 
-    public function render()
-    {
+    public function updated() {
+        $this->resetPage();
+    }
+
+    public function render() {
         $query = Advertise::query();
 
         if($this->searchText) {
@@ -40,7 +47,13 @@ class AdList extends Component
             $query->where('state_id', $this->selectedState);
         }
 
-        $this->filteredAds = $query->get();
-        return view('livewire.ad-list');
+        // $this->filteredAds = $query->get();
+        // Para o retorno padrão da listagem deve-se utilizar desta forma /\
+        // Para o retorno com paginação, deve-se utilizar desta forma \/
+
+        return view('livewire.ad-list', [
+            'filteredAds' => $query->simplePaginate(4) // Desta forma apresenta apenas o botão de anterior e próximo.
+            // 'filteredAds' => $query->paginate(4) Desta forma apresenta os botões de antes e depois e os números.
+        ]);
     }
 }

@@ -48,5 +48,7 @@
             </a>
         @endforeach
       </div>
+
+      <div> {{ $filteredAds->links() }} </div>
     </div>
   </main>
