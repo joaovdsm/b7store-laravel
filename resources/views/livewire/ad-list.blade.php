@@ -49,6 +49,6 @@
         @endforeach
       </div>
 
-      <div> {{ $filteredAds->links() }} </div>
+      <div class="mt-5"> {{ $filteredAds->links() }} </div>
     </div>
   </main>
