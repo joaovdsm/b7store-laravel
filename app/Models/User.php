@@ -48,10 +48,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // Vários x 1
     public function advertises(): HasMany {
         return $this->hasMany(Advertise::class);
     }
 
+    // 1 x 1
     public function state(): BelongsTo {
         return $this->belongsTo(State::class);
     }

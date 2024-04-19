@@ -17,7 +17,7 @@ class FilteredAdvertises extends Component
      */
     public function __construct()
     {
-        $this->advertises = Advertise::all();
+        $this->advertises = Advertise::orderBy('created_at', 'desc')->limit(4)->get();
         // $this->advertises = [
         //     [ 'href'  => '#', 'image'   => 'http://placehold.it/150x150', 'name'  => 'Bola de Futebol Americano Wilson', 'price' => 'R$ 138,61' ],
         //     [ 'href'  => '#', 'image'   => 'http://placehold.it/150x150', 'name'  => 'Tênis vans Baby - 1 ano', 'price' => 'R$ 189,99' ],

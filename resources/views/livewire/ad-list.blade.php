@@ -41,11 +41,15 @@
       <div class="ads-title">Anúncios recentes</div>
       <div class="ads-area">
         @foreach ($filteredAds as $filteredAd)
-            <a href="{{ route('ad-show', $filteredAd->slug) }}" class="ad-item">
+            {{-- Com a utilização de componentes --}}
+            <x-basic-ad :advertise="$filteredAd" />
+
+            {{-- Sem a utilização de componentes --}}
+            {{-- <a href="{{ route('ad-show', $filteredAd->slug) }}" class="ad-item">
                 <div class="ad-image" style="background-image: url('{{ $filteredAd->images->where('featured', 1)->first()->url ?? 'https://via.placeholder.com/400x300.png?text=Sem+imagem' }}')" ></div>
                 <div class="ad-title">{{ $filteredAd->title }}</div>
                 <div class="ad-price">R$ {{ $filteredAd->price_formatted }}</div>
-            </a>
+            </a> --}}
         @endforeach
       </div>
 

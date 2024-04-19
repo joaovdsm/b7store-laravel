@@ -53,7 +53,7 @@ class AdList extends Component
 
         return view('livewire.ad-list', [
             // 'filteredAds' => $query->simplePaginate(4) // Desta forma apresenta apenas o botão de anterior e próximo.
-            'filteredAds' => $query->paginate(4) // Desta forma apresenta os botões de antes e depois e os números.
+            'filteredAds' => $query->orderBy('created_at', 'desc')->paginate(4) // Desta forma apresenta os botões de antes e depois e os números.
         ]);
     }
 }
