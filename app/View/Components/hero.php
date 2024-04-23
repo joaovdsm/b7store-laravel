@@ -6,6 +6,10 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
+// Models
+use \App\Models\Category;
+use \App\Models\State;
+
 class hero extends Component
 {
     public $categories;
@@ -15,17 +19,8 @@ class hero extends Component
      */
     public function __construct()
     {
-        $this->categories = [
-            ['value' => 'carros', 'name' => 'Carros'],
-            ['value' => 'eletronicos', 'name' => 'Eletrônicos'],
-            ['value' => 'roupas', 'name' => 'Roupas'],
-        ];
-
-        $this->states = [
-            ['value' => 'RS', 'name' => 'Rio Grande do Sul'],
-            ['value' => 'SC', 'name' => 'Santa Catarina'],
-            ['value' => 'SP', 'name' => 'São Paulo']
-        ];
+        $this->categories = Category::all();
+        $this->states = State::all();
     }
 
     /**
