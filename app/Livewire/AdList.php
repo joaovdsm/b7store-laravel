@@ -23,6 +23,12 @@ class AdList extends Component
     public $selectedCategory;
     public $searchText;
 
+    protected $queryString = [
+        'searchText'        => ['as' => 's'],
+        'selectedCategory'  => ['as' => 'c'],
+        'selectedState'     => ['as' => 'st'],
+    ];
+
     public function mount() {
         $this->categories = Category::all();
         $this->states = State::all();
