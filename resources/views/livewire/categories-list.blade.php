@@ -1,28 +1,13 @@
 <div class="categories-area">
   <div class="title">Categorias</div>
   <div class="buttons">
-    <button class="cars">
-      <img src="/assets/icons/carIcon.png" alt="Ícone Carros" />
-      Carros
-    </button>
-    <button class="eletronics">
-      <img
-        src="/assets/icons/eletronicsIcon.png"
-        alt="Ícone Eletrônicos"
-      />
-      Eletrônicos
-    </button>
-    <button class="clothes">
-      <img src="/assets/icons/clothesIcon.png" alt="Ícone Roupas" />
-      Roupas
-    </button>
-    <button class="sports">
-      <img src="/assets/icons/sportsIcon.png" alt="Ícone Esportes" />
-      Esportes
-    </button>
-    <button class="babies">
-      <img src="/assets/icons/babiesIcon.png" alt="Ícone Bebês" />
-      Bebês
-    </button>
+    @foreach ($categories as $category)
+
+    <a href="{{ route('ad-list', ['c' => $category->id]) }}" class="category_button decoration-none">
+      <img src="{{ $category->icon }}" alt="Ícone Carros" />
+      {{ $category->name }}
+    </a>
+      
+    @endforeach
   </div>
 </div>

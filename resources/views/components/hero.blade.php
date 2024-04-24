@@ -1,7 +1,7 @@
 <section class="hero-area">
     <h3 class="subtitle">Aqui você encontra o que tanto procura!</h3>
     <h1 class="title">O que você está procurando?</h1>
-    <form class="search-area" method="GET" action="{{ route('list') }}">
+    <form class="search-area" method="GET" action="{{ route('ad-list') }}">
       <input
         class="search-text"
         type="text"
