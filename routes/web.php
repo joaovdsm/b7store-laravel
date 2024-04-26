@@ -20,6 +20,7 @@ Route::get('/forgot-password', function() { return view('auth.forgot-password');
 Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad-show');
 
 Route::get('/list', [AdController::class, 'list'])->name('ad-list');
+Route::get('/category/{slug}', [AdController::class, 'category'])->name('ad-category');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/select-state', [AuthController::class, 'state'])->name('select-state');

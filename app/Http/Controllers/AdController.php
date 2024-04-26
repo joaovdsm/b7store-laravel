@@ -10,11 +10,27 @@ use Illuminate\Support\Facades\Auth;
 // Models
 use App\Models\Advertise;
 use App\Models\AdvertiseImage;
+use App\Models\Category;
 
 class AdController extends Controller
 {
     public function list() {
       return view('list');
+    }
+
+    public function category(Request $r, String $slug) {
+      $category = Category::where('slug', $slug)->first();
+
+      if(!$category) {
+        return redirect()->route('home');
+      }
+
+      $filteredAds = Advertise::where('category_id', $category->category_id)
+      ->with('images')
+      ->orderBy('created_at', 'desc')
+      ->paginate(8);
+
+      return view('category-list', compact('filteredAds'));
     }
 
     public function show(String $slug) {
