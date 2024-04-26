@@ -25,12 +25,12 @@ class AdController extends Controller
         return redirect()->route('home');
       }
 
-      $filteredAds = Advertise::where('category_id', $category->category_id)
+      $filteredAds = Advertise::where('category_id', $category->id)
       ->with('images')
       ->orderBy('created_at', 'desc')
-      ->paginate(8);
+      ->paginate(4);
 
-      return view('category-list', compact('filteredAds'));
+      return view('category-list', compact('filteredAds', 'category'));
     }
 
     public function show(String $slug) {
