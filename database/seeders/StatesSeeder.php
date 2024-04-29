@@ -7,13 +7,8 @@ use Illuminate\Database\Seeder;
 
 use App\Models\State;
 
-class StatesSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
+class StatesSeeder extends Seeder {
+    public function run(): void {
         $states = [
             ['name' => 'Acre', 'acronym' => 'AC'],
             ['name' => 'Alagoas', 'acronym' => 'AL'],
