@@ -26,13 +26,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/select-state', [AuthController::class, 'state'])->name('select-state');
     Route::post('/select-state', [AuthController::class, 'state_action']);
     
+    // Dashboard
     Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my-ads');
     Route::post('/dashboard/my-ads', [DashboardController::class, 'my_ads_action']);
 
-    Route::get('/dashboard/ad/delete/{id}', [AdController::class, 'delete'])->name('ad-delete');
-
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my-account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action']);
+
+    // Advertise
+    Route::get('/dashboard/advertise', [AdController::class, 'create'])->name('ad-create');
+    Route::post('/dashboard/advertise', [AdController::class, 'advertise_action']);
+
+    Route::get('/dashboard/ad/delete/{id}', [AdController::class, 'delete'])->name('ad-delete');
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

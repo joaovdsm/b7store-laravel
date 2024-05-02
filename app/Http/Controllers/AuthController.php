@@ -64,7 +64,7 @@ class AuthController extends Controller
         $user = Auth::user();
         $user->state_id = $stateRegister->id; // Caso o nome passado no retorno seja diferente do utilizado na tabela, precisa da conversão
         $user->save();
-        return redirect()->route('home');
+        return redirect()->route('my-ads');
     }
 
     public function logout() {
