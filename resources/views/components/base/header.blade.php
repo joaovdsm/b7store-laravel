@@ -14,12 +14,12 @@
                 Login
             </a>
         @endif
-        <a href="" class="announce-now">Anunciar agora →</a>
+        <a href="{{ route('ad-create') }}" class="announce-now">Anunciar agora →</a>
         <img class="menu-icon" src="/assets/icons/menuIcon.png" alt="Menu" />
         <div class="menu-mobile">
             @if (Auth::check()) 
                 
-                <a href="myAccount.html" class="my-account-mobile">
+                <a href="{{ route('my-account') }}" class="my-account-mobile">
                     <img src="/assets/icons/userIcon.png" alt="Ícone do usuário" />
                     Minha Conta
                 </a>
