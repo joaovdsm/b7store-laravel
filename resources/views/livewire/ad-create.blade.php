@@ -36,11 +36,13 @@
             <div class="title-area">
               <div class="title-label">Título do anúncio</div>
               <input wire:model="title" type="text" placeholder="Digite o título do anúncio" />
+              @error('title') <span class="form-error"> {{ $message }} </span> @enderror
             </div>
             <div class="value-area">
               <div class="value-label">
                 <div class="value-area-text">Valor</div>
                 <input wire:model="price" type="text" placeholder="Digite o valor" />
+                @error('price') <span class="form-error"> {{ $message }} </span> @enderror
               </div>
               <div class="negotiable-area">
                 <div class="negotiable-label">Negociável?</div>
@@ -48,6 +50,7 @@
                   <option value="0" selected>Não</option>
                   <option value="1">Sim</option>
                 </select>
+                @error('negotiable') <span class="form-error"> {{ $message }} </span> @enderror
               </div>
             </div>
             <div class="newAd-categories-area">
@@ -58,6 +61,7 @@
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
               </select>
+              @error('category_id') <span class="form-error"> {{ $message }} </span> @enderror
             </div>
             <div class="description-area">
               <div class="description-label">Descrição</div>
@@ -66,6 +70,7 @@
                 class="description-text"
                 placeholder="Digite a descrição do anúncio"
               ></textarea>
+              @error('description') <span class="form-error"> {{ $message }} </span> @enderror
             </div>
             <button class="newAd-button">Criar anúncio</button>
           </form>
