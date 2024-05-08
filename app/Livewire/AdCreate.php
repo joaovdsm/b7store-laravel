@@ -28,6 +28,7 @@ class AdCreate extends Component {
     }
 
     public function save() {
-
+        $this->validate();
+        dd("saved");
     }
 }
