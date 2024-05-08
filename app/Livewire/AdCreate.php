@@ -6,8 +6,13 @@ use Livewire\Component;
 
 //Models
 use App\Models\Category;
+use Livewire\WithFileUploads;
 
 class AdCreate extends Component {
+    // Necessário para o upload de arquivos
+    use WithFileUploads;
+    public $images;
+
     public $title;
     public $price;
     public $negotiable;
@@ -17,7 +22,7 @@ class AdCreate extends Component {
     protected $rules = [
         'title' => 'required|min:8|max:255',
         'price' => 'required|numeric',
-        'negotiable' => 'required|boolean',
+        'negotiable' => 'boolean',
         'description' => 'required|min:8|max:255',
         'category_id' => 'required|exists:categories,id'
     ];
@@ -29,6 +34,6 @@ class AdCreate extends Component {
 
     public function save() {
         $this->validate();
-        dd("saved");
+        dd($this->images);
     }
 }
