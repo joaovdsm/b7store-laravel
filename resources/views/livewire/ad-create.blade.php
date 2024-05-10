@@ -11,6 +11,7 @@
             <div class="area-left-up-img-text">
               <span onclick="openFileDialog()">Clique aqui</span> para enviar uma imagem
             </div>
+            @error('images') <span class="form-error"> {{ $message }} </span> @enderror
           </div>
         </div>
         <div class="area-left-bottom">
@@ -33,7 +34,7 @@
       </div>
       <div class="newAd-area-right">
         <form class="newAd-form" wire:submit="save">
-          <input id="file-upload" style="visibility: hidden" type="file" wire:model="images" multiple />
+          <input id="file-upload" style="visibility: hidden" type="file" wire:model="images" multiple accept="image/jpeg, image/png" />
           <div class="title-area">
             <div class="title-label">Título do anúncio</div>
             @error('title') <span class="form-error"> {{ $message }} </span> @enderror

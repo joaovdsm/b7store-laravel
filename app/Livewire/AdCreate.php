@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class AdCreate extends Component {
     // Necessário para o upload de arquivos
     use WithFileUploads;
-    public $images;
+    public $images = [];
 
     public $title;
     public $price;
@@ -20,6 +20,8 @@ class AdCreate extends Component {
     public $category_id;
 
     protected $rules = [
+        'images' => 'required|min:1|max:5',
+        'images.*' => 'image|max:2048', //Tamanho máximo do arquivo é de 2 Mb.
         'title' => 'required|min:8|max:255',
         'price' => 'required|numeric',
         'negotiable' => 'boolean',
