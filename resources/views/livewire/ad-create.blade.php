@@ -15,21 +15,25 @@
           </div>
         </div>
         <div class="area-left-bottom">
-          <div class="smallpics">
-            <img src="/assets/icons/imageSmallIcon.png" />
-          </div>
-          <div class="smallpics">
-            <img src="/assets/icons/imageSmallIcon.png" />
-          </div>
-          <div class="smallpics">
-            <img src="/assets/icons/imageSmallIcon.png" />
-          </div>
-          <div class="smallpics">
-            <img src="/assets/icons/imageSmallIcon.png" />
-          </div>
-          <div class="smallpics">
-            <img src="/assets/icons/imageSmallIcon.png" />
-          </div>
+          {{-- Maneira apresentada na aula foi utilizando o FOREACH e o FOR juntos --}}
+          {{-- @foreach ($images as $image)
+            <div class="smallpics">
+              <img src="{{ $image->temporaryUrl() }}" />
+            </div>
+          @endforeach --}}
+
+          {{-- Fazendo a implementação do IF/ELSE o FOREACH não é necessário (Modificação implementa por mim) --}}
+          @for ($count = 0; $count < 5; $count++)
+            @if(!empty($images[$count])) 
+              <div class="smallpics">
+                <img src="{{ $images[$count]->temporaryUrl() }}" />
+              </div>
+            @else
+              <div class="smallpics">
+                <img src="/assets/icons/imageSmallIcon.png" />
+              </div>
+            @endif
+          @endfor
         </div>
       </div>
       <div class="newAd-area-right">
