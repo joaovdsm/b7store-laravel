@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class AdCreate extends Component {
     // Necessário para o upload de arquivos
     use WithFileUploads;
-    public $images = [];
+    public $images = []; 
 
     public $title;
     public $price;

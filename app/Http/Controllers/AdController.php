@@ -34,8 +34,8 @@ class AdController extends Controller
 
       if(!$ad) {
         return redirect()->route('home');
-      } 
-      
+      }
+
       AdvertiseImage::where('advertise_id', $ad->id)->delete(); // Primeiro remove todas as imagens do banco vinculadas ao anúncio.
       $ad->delete(); // Depois remove o anúncio.
       return redirect()->back();
@@ -75,5 +75,4 @@ class AdController extends Controller
 
       return view('single-ad', compact('ad', 'relatedAds'));
     }
-
 }

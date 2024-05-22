@@ -20,6 +20,6 @@
             <option value="{{$state['value']}}">{{$state['name']}}</option>
         @endforeach
       </select>
-      <button type="submit" class="search-button">Procurar</button>
+      <button class="search-button">Procurar</button>
     </form>
 </section>
